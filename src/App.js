@@ -1,7 +1,8 @@
-import React, { useRef, useEffect } from 'react';
+import React, {useRef, useEffect } from 'react';
 import mapboxgl from 'mapbox-gl'; 
+import token from './token'
 
-mapboxgl.accessToken = 'pk.eyJ1IjoiY3lub3MxIiwiYSI6ImNrdWZveXQwcTF3ZTAyd3FscHV3c2JydWgifQ.EnstwudjuuiHNPsQWsRzag';
+mapboxgl.accessToken = token;
 
 export default function App() {
     const mapContainer = useRef();
@@ -50,11 +51,21 @@ export default function App() {
          
       return () => map.remove();  
     },[]);
+    // const [layers] = useState({});
+    // const handleLayers = (e) =>{
+    //   if(e.target.checked){
+    //     map.addLayer(id);
+    //   }
+    //   else{
+    //     map.removeLayer(id)
+    //   }
+    // }
 
 
       return (
-
+        <div>
           <div ref={mapContainer} className="map-container" />
+        </div>
 
       );
 }
